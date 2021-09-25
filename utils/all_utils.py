@@ -7,6 +7,14 @@ import os
 plt.style.use("fivethirtyeight") # THIS IS STYLE OF GRAPHS
 
 def prepare_data(df):
+  """it is used to separate the dependent variables and independent features
+
+  Args:
+      df (pd.DataFrame): its the pandas dataset
+      
+  Returns:
+      tuple: it returns tuples of dependent and independent variables
+  """
   X = df.drop("y", axis=1)
 
   y = df["y"]
@@ -15,12 +23,25 @@ def prepare_data(df):
 
 
 def save_model(model, filename):
+  """This saves the trained model
+
+  Args:
+      model (python object): trained model
+      filename (str): path to save the trained model
+  """
   model_dir = "models"
   os.makedirs(model_dir, exist_ok=True) # ONLY CREATE IF MODEL_DIR DOESN"T EXISTS
   filePath = os.path.join(model_dir, filename) # model/filename
   joblib.dump(model, filePath)
 
 def save_plot(df, file_name, model):
+  """saves the plots
+
+  Args:
+      df: its a dataFrame
+      file_name: its a path to save the plots
+      model: trained model
+  """
   def _create_base_plot(df):
     df.plot(kind="scatter", x="x1", y="x2", c="y", s=100, cmap="winter")
     plt.axhline(y=0, color="black", linestyle="--", linewidth=1)
