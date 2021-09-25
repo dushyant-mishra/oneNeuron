@@ -1,2 +1,6 @@
 # oneNeuron
-oneNeuron | perceptron 
+oneNeuron | perceptron
+
+author: Dushyant Mishra
+email: dushyant.mishra@gmail.com
+
