@@ -15,7 +15,7 @@ filemode="a")
 def main(data, eta, epochs, filename, plotFileName):
    
     df = pd.DataFrame(data)
-    logging.info(df)
+    logging.info(f"This is the actual dataframe \n{df}")
     X,y = prepare_data(df)
     
     model = Perceptron(eta=eta, epochs=epochs)
