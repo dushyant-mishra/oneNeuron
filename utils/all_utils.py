@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import joblib # for saving my model as binary file
+import joblib # for saving my model as a binary file
 from matplotlib.colors import ListedColormap
 import os
 import logging
@@ -9,10 +9,10 @@ plt.style.use("fivethirtyeight") # this is the style of the plot
 
 def prepare_data(df, target_col="y"):
 
-  """it is used to separate the dependent variables and independent features
+  """it is used to separate the dependent and independent variables
 
   Args:
-      df (pd.DataFrame): its the pandas dataset
+      df (pd.DataFrame): its the pandas dataframe from the dataset
       
   Returns:
       tuple: it returns tuples of dependent and independent variables
@@ -49,7 +49,7 @@ def save_plot(df, file_name, model):
       file_name: its a path to save the plots
       model: trained model
   """
-  def _create_base_plot(df):       #plots the data points and creates a base plot
+  def _create_base_plot(df):           #plots the data points and creates a base plot
     logging.info("creating the base plot")
     df.plot(kind="scatter", x="x1", y="x2", c="y", s=100, cmap="winter")
     plt.axhline(y=0, color="black", linestyle="--", linewidth=1)
